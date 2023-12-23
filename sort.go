@@ -13,3 +13,21 @@ func BubbleSort(arr []int) {
 		}
 	}
 }
+
+// SelectionSort 选择排序
+func SelectionSort(arr []int) {
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		minIndex := i
+		for j := i + 1; j < n; j++ {
+			if arr[minIndex] > arr[j] {
+				minIndex = j
+			}
+		}
+		if i != minIndex {
+			arr[i] = arr[i] ^ arr[minIndex]
+			arr[minIndex] = arr[i] ^ arr[minIndex]
+			arr[i] = arr[i] ^ arr[minIndex]
+		}
+	}
+}
