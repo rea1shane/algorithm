@@ -24,6 +24,11 @@ func TestInsertionSort(t *testing.T) {
 	check()
 }
 
+func TestQuickSort(t *testing.T) {
+	QuickSort(arr)
+	check()
+}
+
 // check 检测排序是否正确
 func check() {
 	fmt.Println(reflect.DeepEqual(arr, res))

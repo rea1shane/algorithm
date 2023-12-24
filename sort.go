@@ -1,5 +1,7 @@
 package algorithm
 
+// https://www.cnblogs.com/onepixel/articles/7674659.html
+
 // BubbleSort 冒泡排序
 func BubbleSort(arr []int) {
 	n := len(arr)
@@ -44,4 +46,33 @@ func InsertionSort(arr []int) {
 		}
 		arr[preIndex+1] = current
 	}
+}
+
+// QuickSort 快速排序
+func QuickSort(arr []int) {
+	quickSort(arr, 0, len(arr)-1)
+}
+
+func quickSort(arr []int, l, r int) {
+	if l < r {
+		pivot := partition(arr, l, r)
+		quickSort(arr, l, pivot-1)
+		quickSort(arr, pivot+1, r)
+	}
+}
+
+func partition(arr []int, l, r int) int {
+	pivot := arr[l]
+	for l < r {
+		for l < r && pivot <= arr[r] {
+			r--
+		}
+		arr[l] = arr[r]
+		for l < r && pivot >= arr[l] {
+			l++
+		}
+		arr[r] = arr[l]
+	}
+	arr[l] = pivot
+	return l
 }
