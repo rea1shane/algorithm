@@ -31,3 +31,17 @@ func SelectionSort(arr []int) {
 		}
 	}
 }
+
+// InsertionSort 插入排序
+func InsertionSort(arr []int) {
+	n := len(arr)
+	for i := 1; i < n; i++ {
+		preIndex := i - 1
+		current := arr[i]
+		for preIndex >= 0 && arr[preIndex] > current {
+			arr[preIndex+1] = arr[preIndex]
+			preIndex--
+		}
+		arr[preIndex+1] = current
+	}
+}
